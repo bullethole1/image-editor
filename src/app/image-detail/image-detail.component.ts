@@ -27,7 +27,7 @@ export class ImageDetailComponent implements OnInit {
     const dataArray = imageData.data;
     console.log(dataArray);
 
-    for (let i = 0; i < dataArray.length; i++) {
+    for (let i = 0; i < dataArray.length; i += 4) {
       const red = dataArray[i];
       const green = dataArray[i + 1];
       const blue = dataArray[i + 2];
