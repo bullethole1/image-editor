@@ -12,8 +12,9 @@ export class ImageDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addImage($event): void {
-    alert('test');
+  addImage(event: any): void {
+    const id = event.target.attributes.id.nodeValue;
+    alert(id);
   }
 
 }
