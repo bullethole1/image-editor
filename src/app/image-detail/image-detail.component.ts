@@ -14,7 +14,10 @@ export class ImageDetailComponent implements OnInit {
 
   addImage(event: any): void {
     const id = event.target.attributes.id.nodeValue;
-    alert(id);
+    const img = document.getElementById(id) as HTMLCanvasElement;
+    const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
+    const context = canvas.getContext('2d');
+    context.drawImage(img, 0, 0);
   }
 
 }
