@@ -13,14 +13,10 @@ export class ImageDetailComponent implements OnInit {
   }
 
   addImage(event: any): void {
-    const naturalHeight = event.srcElement.naturalHeight;
-    // const id = event.target.attributes.id.nodeValue;
-    // const img = document.getElementById(id) as HTMLCanvasElement;
-    const img = new Image();
-    img.src = event.target.attributes.src.nodeValue;
-    img.width = event.srcElement.naturalWidth;
-    img.height = event.srcElement.naturalHeight;
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+    const src = event.target.attributes.src.nodeValue;
+    const img = new Image();
+    img.src = src;
     const context = canvas.getContext('2d');
     const wrh = img.width / img.height;
     let newWidth = canvas.width;
@@ -30,12 +26,13 @@ export class ImageDetailComponent implements OnInit {
       newWidth = newHeight * wrh;
     }
     context.drawImage(img, 0, 0, newWidth, newHeight);
+    canvas.style.display = 'flex';
   }
 
   blackAndWhite(): void {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
-    const imageData = context.getImageData(0, 0, 800, 600);
+    const imageData = context.getImageData(0, 0, 600, 800);
     const dataArray = imageData.data;
     console.log(dataArray);
 
@@ -59,7 +56,7 @@ export class ImageDetailComponent implements OnInit {
   invert(): void {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
-    const imageData = context.getImageData(0, 0, 800, 600);
+    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     const dataArray = imageData.data;
     console.log(dataArray);
 
