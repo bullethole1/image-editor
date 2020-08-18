@@ -20,23 +20,20 @@
 
 .working-area-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   margin-top: 20px;
 }
 
 #working-area-image-container {
-  height: 500px;
+  width: 800px;
+  height: 600px;
+  background-color: darksalmon;
 }
 
-#working-area-image-container img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
+
 
 .button-container {
   display: flex;
   justify-content: space-evenly;
-  width: 300px;
   background-color: darkorchid;
 }

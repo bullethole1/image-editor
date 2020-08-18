@@ -17,18 +17,14 @@ export class ImageDetailComponent implements OnInit {
     const img = document.getElementById(id) as HTMLCanvasElement;
     const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
-    const wrh = img.width / img.height;
-    let newWidth = canvas.width;
-    let newHeight = newWidth / wrh;
-    if (newHeight > canvas.height) {
-      newHeight = canvas.height;
-      newWidth = newHeight * wrh;
-    }
-    context.drawImage(img, 0, 0, newWidth, newHeight);
+    context.drawImage(img, 0, 0, 800, 600);
   }
 
   blackAndWhite(): void {
-    alert('test');
+    const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
+    const context = canvas.getContext('2d');
+    const imageData = context.getImageData(0, 0, 800, 600);
+    console.log(imageData);
   }
 
   invert(): void {
