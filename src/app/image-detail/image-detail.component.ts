@@ -24,7 +24,24 @@ export class ImageDetailComponent implements OnInit {
     const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
     const imageData = context.getImageData(0, 0, 800, 600);
-    console.log(imageData);
+    const dataArray = imageData.data;
+    console.log(dataArray);
+
+    for (let i = 0; i < dataArray.length; i++) {
+      const red = dataArray[i];
+      const green = dataArray[i + 1];
+      const blue = dataArray[i + 2];
+      const alpha = dataArray[i + 3];
+
+      const gray = 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+
+      dataArray[i] = gray;
+      dataArray[i + 1] = gray;
+      dataArray[i + 2] = gray;
+      dataArray[i + 3] = alpha;
+    }
+
+    context.putImageData(imageData, 0, 0);
   }
 
   invert(): void {
