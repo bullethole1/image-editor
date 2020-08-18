@@ -10,7 +10,7 @@
 
 .images {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .images-container img {
@@ -20,15 +20,21 @@
 }
 
 .working-area-container {
-  background-color: darkblue;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 #working-area-image-container {
-  width: 300px;
-  height: 400px;
+  /* width: 300px;
+  height: 400px; */
   background-color: darkgoldenrod;
+}
+
+#working-area-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .button-container {

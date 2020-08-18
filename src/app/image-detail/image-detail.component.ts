@@ -20,4 +20,8 @@ export class ImageDetailComponent implements OnInit {
     context.drawImage(img, 0, 0);
   }
 
+  blackAndWhite(): void {
+    alert('test');
+  }
+
 }
