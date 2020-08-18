@@ -14,23 +14,19 @@
 
 .images-container img {
   width: 20vw;
-  height: 18vw;
+  height: 18vh;
   object-fit: cover;
 }
 
 .working-area-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  width: 100%;
+  background-color: darksalmon;
 }
 
 #working-area-image-container {
   width: 800px;
   height: 600px;
-  background-color: darksalmon;
 }
-
-
 
 .button-container {
   display: flex;
