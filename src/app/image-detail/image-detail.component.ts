@@ -15,13 +15,13 @@ export class ImageDetailComponent implements OnInit {
   addImage(event: any): void {
     const id = event.target.attributes.id.nodeValue;
     const img = document.getElementById(id) as HTMLCanvasElement;
-    const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
+    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
     context.drawImage(img, 0, 0, 800, 600);
   }
 
   blackAndWhite(): void {
-    const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
+    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
     const imageData = context.getImageData(0, 0, 800, 600);
     const dataArray = imageData.data;
@@ -45,7 +45,7 @@ export class ImageDetailComponent implements OnInit {
   }
 
   invert(): void {
-    const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
+    const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
     const imageData = context.getImageData(0, 0, 800, 600);
     const dataArray = imageData.data;
@@ -60,12 +60,10 @@ export class ImageDetailComponent implements OnInit {
       const invertRed = 255 - red;
       const invertGreen = 255 - green;
       const invertBlue = 255 - blue;
-      const invertAlpha = 255 - alpha;
 
       dataArray[i] = invertRed;
       dataArray[i + 1] = invertGreen;
       dataArray[i + 2] = invertBlue;
-      dataArray[i + 3] = invertAlpha;
     }
     context.putImageData(imageData, 0, 0);
   }
