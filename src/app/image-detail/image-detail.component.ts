@@ -45,7 +45,11 @@ export class ImageDetailComponent implements OnInit {
   }
 
   invert(): void {
-    alert('test');
+    const canvas = document.getElementById('working-area-image-container') as HTMLCanvasElement;
+    const context = canvas.getContext('2d');
+    const imageData = context.getImageData(0, 0, 800, 600);
+    const dataArray = imageData.data;
+    console.log(dataArray);
   }
 
 }
