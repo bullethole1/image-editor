@@ -4,13 +4,12 @@
 }
 
 .images-container {
-  max-width: 2000px;
-  background-color: aqua;
+  width: 1500px;
 }
 
 .images {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .images-container img {
@@ -26,9 +25,7 @@
 }
 
 #working-area-image-container {
-  /* width: 300px;
-  height: 400px; */
-  background-color: darkgoldenrod;
+  height: 500px;
 }
 
 #working-area-image-container img {
