@@ -50,6 +50,24 @@ export class ImageDetailComponent implements OnInit {
     const imageData = context.getImageData(0, 0, 800, 600);
     const dataArray = imageData.data;
     console.log(dataArray);
+
+    for (let i = 0; i < dataArray.length; i += 4) {
+      const red = dataArray[i];
+      const green = dataArray[i + 1];
+      const blue = dataArray[i + 2];
+      const alpha = dataArray[i + 3];
+
+      const invertRed = 255 - red;
+      const invertGreen = 255 - green;
+      const invertBlue = 255 - blue;
+      const invertAlpha = 255 - alpha;
+
+      dataArray[i] = invertRed;
+      dataArray[i + 1] = invertGreen;
+      dataArray[i + 2] = invertBlue;
+      dataArray[i + 3] = invertAlpha;
+    }
+    context.putImageData(imageData, 0, 0);
   }
 
 }
