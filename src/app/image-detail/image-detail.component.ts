@@ -35,7 +35,6 @@ export class ImageDetailComponent implements OnInit {
     const context = canvas.getContext('2d');
     const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     const dataArray = imageData.data;
-    console.log(dataArray);
 
     for (let i = 0; i < dataArray.length; i += 4) {
       const red = dataArray[i];
@@ -59,7 +58,6 @@ export class ImageDetailComponent implements OnInit {
     const context = canvas.getContext('2d');
     const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     const dataArray = imageData.data;
-    console.log(dataArray);
 
     for (let i = 0; i < dataArray.length; i += 4) {
       const red = dataArray[i];
