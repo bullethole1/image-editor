@@ -1,0 +1,15 @@
+.images-container {
+  background-color: aqua;
+  width: 100%;
+}
+
+.images {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.images-container p {
+  width: 300px;
+  height: 500px;
+  background-color: brown;
+}
