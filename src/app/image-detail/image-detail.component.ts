@@ -25,6 +25,7 @@ export class ImageDetailComponent implements OnInit {
       newHeight = canvas.height;
       newWidth = newHeight * wrh;
     }
+    context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(img, 0, 0, newWidth, newHeight);
     canvas.style.display = 'flex';
   }
@@ -32,7 +33,7 @@ export class ImageDetailComponent implements OnInit {
   blackAndWhite(): void {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
-    const imageData = context.getImageData(0, 0, 600, 800);
+    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     const dataArray = imageData.data;
     console.log(dataArray);
 
