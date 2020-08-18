@@ -13,17 +13,23 @@ export class ImageDetailComponent implements OnInit {
   }
 
   addImage(event: any): void {
-    const src = event.target.attributes.src.nodeValue;
-    // const imgSrc = document.getElementById(src) as HTMLCanvasElement;
-    const imageOriginalHeight = event.srcElement.naturalHeight;
-    const imageOriginalWidth = event.srcElement.naturalWidth;
+    const naturalHeight = event.srcElement.naturalHeight;
+    // const id = event.target.attributes.id.nodeValue;
+    // const img = document.getElementById(id) as HTMLCanvasElement;
+    const img = new Image();
+    img.src = event.target.attributes.src.nodeValue;
+    img.width = event.srcElement.naturalWidth;
+    img.height = event.srcElement.naturalHeight;
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     const context = canvas.getContext('2d');
-    const img = new Image();
-    img.src = src;
-    img.width = imageOriginalWidth;
-    img.height = imageOriginalHeight;
-    context.drawImage(img, 0, 0);
+    const wrh = img.width / img.height;
+    let newWidth = canvas.width;
+    let newHeight = newWidth / wrh;
+    if (newHeight > canvas.height) {
+      newHeight = canvas.height;
+      newWidth = newHeight * wrh;
+    }
+    context.drawImage(img, 0, 0, newWidth, newHeight);
   }
 
   blackAndWhite(): void {
