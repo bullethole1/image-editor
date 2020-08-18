@@ -12,4 +12,8 @@ export class ImageDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addImage($event): void {
+    alert('test');
+  }
+
 }
