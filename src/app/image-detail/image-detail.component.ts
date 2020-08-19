@@ -14,19 +14,12 @@ export class ImageDetailComponent implements OnInit {
 
   addImage(event: any): void {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-    const src = event.target.attributes.src.nodeValue;
+    const imgSrc = event.target.attributes.src.nodeValue;
     const img = new Image();
-    img.src = src;
+    img.src = imgSrc;
     const context = canvas.getContext('2d');
-    const wrh = img.width / img.height;
-    let newWidth = canvas.width;
-    let newHeight = newWidth / wrh;
-    if (newHeight > canvas.height) {
-      newHeight = canvas.height;
-      newWidth = newHeight * wrh;
-    }
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(img, 0, 0, newWidth, newHeight);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
     canvas.style.display = 'flex';
   }
 
@@ -40,14 +33,12 @@ export class ImageDetailComponent implements OnInit {
       const red = dataArray[i];
       const green = dataArray[i + 1];
       const blue = dataArray[i + 2];
-      const alpha = dataArray[i + 3];
 
       const gray = 0.2126 * red + 0.7152 * green + 0.0722 * blue;
 
       dataArray[i] = gray;
       dataArray[i + 1] = gray;
       dataArray[i + 2] = gray;
-      dataArray[i + 3] = alpha;
     }
 
     context.putImageData(imageData, 0, 0);
@@ -63,7 +54,6 @@ export class ImageDetailComponent implements OnInit {
       const red = dataArray[i];
       const green = dataArray[i + 1];
       const blue = dataArray[i + 2];
-      const alpha = dataArray[i + 3];
 
       const invertRed = 255 - red;
       const invertGreen = 255 - green;
