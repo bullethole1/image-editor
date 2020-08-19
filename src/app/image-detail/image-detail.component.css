@@ -18,6 +18,10 @@
   object-fit: cover;
 }
 
+.working-area {
+  display: flex;
+  justify-content: center;
+}
 
 #canvas {
   display: none;
