@@ -14,11 +14,12 @@ export class ImageDetailComponent implements OnInit {
 
   addImage(event: any): void {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-    const imgSrc = event.target.attributes.src.nodeValue;
     const img = new Image();
-    img.src = imgSrc;
+    img.src = event.target.attributes.src.nodeValue;
     const context = canvas.getContext('2d');
     context.clearRect(0, 0, canvas.width, canvas.height);
+    canvas.width = img.width * window.devicePixelRatio;
+    canvas.height = img.height * window.devicePixelRatio;
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
     canvas.style.display = 'flex';
   }
@@ -30,6 +31,7 @@ export class ImageDetailComponent implements OnInit {
     const dataArray = imageData.data;
 
     for (let i = 0; i < dataArray.length; i += 4) {
+
       const red = dataArray[i];
       const green = dataArray[i + 1];
       const blue = dataArray[i + 2];
